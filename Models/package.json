@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-scripts": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.33.2"
+  }
+}

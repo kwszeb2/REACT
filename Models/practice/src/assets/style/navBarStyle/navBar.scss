@@ -1,0 +1,34 @@
+$bg-color: #333;
+
+.topNav {
+    width: 100%;
+    height: 50px;
+    background-color: $bg-color;
+    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        float: right;
+        margin: 20px 0;
+        padding: 0 25px;
+        li {
+            list-style-type: none;
+            padding-right: 10px;
+            color: red;
+        }
+    }
+}
+
+
+
+@media (max-width: 920px) {
+    .topNav {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bottomNav {
+        display: none !important;
+    }
+}
