@@ -11,14 +11,7 @@ export default function Category({ categories }) {
       {categories.map((item, index) => (
         <Link key={item.id} to={`/products/${item.id}`}>
           <Card key={index} className="mainCard">
-            <CardMedia
-              component="img"
-              height="250"
-              image={`https://source.unsplash.com/random?${Math.floor(
-                Math.random() * 200
-              )}`}
-              alt={`Random number ${Math.floor(Math.random() * 1000)}`}
-            />
+            <img src={item.productImg} width={250}  height={250}/>
             <CardContent>
               <Typography className="cardBody">{item.productLine}</Typography>
             </CardContent>

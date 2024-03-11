@@ -18,13 +18,7 @@ export default function ProductList({ products }) {
         <Card sx={{ maxWidth: 345 }} key={item.CategoryProductID}>
           <CardContent>
             <Link to={`/products/${item.CategoryProductID}/product`}>
-              <CardMedia
-                component="img"
-                height="194"
-                image={`https://source.unsplash.com/random?${Math.floor(
-                  Math.random() * 200
-                )}`}
-              />
+             <img src={item.productImg} width={250} height={250}/>
               <Typography gutterBottom variant="h6" component="div">
                 {item.productName}
               </Typography>

@@ -4,9 +4,7 @@ export default function ProductDetail({ product }) {
   return (
     <div>
       <img
-        src={`https://source.unsplash.com/random?${Math.floor(
-          Math.random() * 200
-        )}`}
+        src={product.productImg}
         height="250"
         width="250"
       />
