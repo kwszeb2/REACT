@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function ProductList({ products }) {
   return (
     <div>
+      <Link to={'/'}>Back to Categories</Link>
       {!products.length && (
         <Typography variant="h3" gutterBottom align="center">
           Sorry, No Products Found in this Category
