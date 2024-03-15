@@ -40,7 +40,7 @@ export default function ProductList({ products }) {
                 </Link>
               </CardContent>
               <Box sx={{ flexGrow: 1 }} />
-              <Button sx={{ py: 1, mt: 1 }} onClick={() => navigate(`/products/${item.product_id}`)}>
+              <Button sx={{ py: 1, mt: 1 }} onClick={() => navigate(`/p/${item.product_id}`)}>
                 View Details
               </Button>
             </Card>
