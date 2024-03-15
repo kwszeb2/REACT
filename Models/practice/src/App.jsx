@@ -16,8 +16,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<ProductCategoryPage />} />
-          <Route path="/products/:id" element={<ProductListPage />} />
-          <Route path="/products/:id/product" element={<ProductDetailedPage />} />
+          <Route path="/:id" element={<ProductListPage />} />
+          <Route path="/:id/:id" element={<ProductDetailedPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>  <LabelBottomNavigation />

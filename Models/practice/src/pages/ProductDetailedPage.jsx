@@ -19,22 +19,23 @@ export default function ProductDetailsPage() {
     try {
       const { data: productDetailData, error } = await supabase
         .from("Products")
-        .select("*");
+        .select("*")
+        .eq("productLine", id)
 
       if (error) {
         console.error("Error fetching data: ", error);
         return;
       }
-
-      const product = productDetailData.find(
+      setProductDetailData(productDetailData);
+      /*const product = productDetailData.find(
         (product) => product.CategoryProductID === parseInt(id)
       );
 
       if (product) {
-        setProductDetailData(product);
+        
       } else {
         console.error("Product not found for id: ", id);
-      }
+      }*/
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
@@ -42,8 +43,8 @@ export default function ProductDetailsPage() {
 
   return (
     <div>
-      <h1>Product Detailed Page </h1>
-      {productDetailData && <ProductDetail product={productDetailData} />}
+      <h1>Product Detailed Page {id} </h1>
+      {<ProductDetail products={productDetailData}/>}
     </div>
   );
 }

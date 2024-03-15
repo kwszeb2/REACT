@@ -1,24 +1,20 @@
 import React from "react";
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useNavigate} from 'react-router-dom';
 
-export default function ProductDetail({ product }) {
-   const {id} = useParams();
+export default function ProductDetail({ products }) {
+  const {id} = useParams();
+  const navigate = useNavigate();
+  console.log(products)
   return (
     <div>
-      <Link to={'/products/'+id}>Back to Products</Link>
-      <img
-        src={product.productImg}
-        height="250"
-        width="250"
-      />
-      {product.product_id +
-        " " +
-        product.productName +
-        " " +
-        product.productScale}
-      {product.productVendor}
-      {"$" + product.price}
-      Description: {product.productDescription}
+      <Link to={'/'} onClick={() => navigate(-1)}>Back to Products</Link>
+     <br/><br/>
+     {products.map((item) => (
+        
+             <img src={item.productImg} width={250} height={250}/>
+                +item.productName
+                +"$" + item.price
+      ))}
     </div>
   );
 }

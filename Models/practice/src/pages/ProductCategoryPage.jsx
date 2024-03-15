@@ -11,7 +11,7 @@ export default function ProductCategoryPage() {
   const navigate = useNavigate();
 
   const handleCategoryClick = (id) => {
-    navigate(`/products/${id}`);
+    navigate(`${id}`);
   };
 
   useEffect(() => {

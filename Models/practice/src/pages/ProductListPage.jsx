@@ -19,7 +19,7 @@ export default function ProductListPage() {
       const { data: productListData, error } = await supabase
         .from("Products")
         .select("*")
-        .eq("CategoryProductID", id)
+        .eq("productLine", id)
         .then((response) => response);
 
       if (error) {
@@ -35,7 +35,7 @@ export default function ProductListPage() {
 
   return (
     <div>
-      <h1>Product List Page for Category ID: {id}</h1>
+      <h1>Product List Page for {id}</h1>
       <ProductList products={productListData} />
     </div>
   );
