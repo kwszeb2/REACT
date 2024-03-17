@@ -11,14 +11,14 @@
 <h3>Using Postgres database with Supabase</h3>
 
 *Installing Supabase package via terminal*<br/>
-<b>npm install @supabase/supabase-js </b>
+### `npm install @supabase/supabase-js`
 
 *Initializating a new Supabase client using the createClient() method*<br/>
-<b>import { createClient } from '@supabase/supabase-js'</b>
-<br/><br/>
+### `import { createClient } from '@supabase/supabase-js'`
+<br/>
 *Create a single supabase client for interacting with your database*<br/>
-<b>const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')</b>
-<br/><br/>
+const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')</b>
+<br/>
 For more information <a href="https://supabase.com/docs/reference/javascript/installing">click here</a> for more documentations!
 <br/>
 <h3>Screenshots:</h3>
