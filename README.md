@@ -5,6 +5,7 @@
     <li>Product Category</li>
     <li>Product List</li>
     <li>Product Detail</li>
+    <li>Shopping Cart (In Progress)</li>
   </ul>
 
 <h3>Using Postgres database with Supabase</h3>
