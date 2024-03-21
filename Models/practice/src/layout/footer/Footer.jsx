@@ -1,10 +1,14 @@
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer(){
     return(
-        <html lang="en">
-            <div>
-               Copyright 2024
-            </div>
-        </html>
+            <footer className="footer">
+              <div className="footer-content">
+                <div className="footer-copyright">
+                  Copyright © 2024
+                </div>
+              </div>
+            </footer>
     );
 }
