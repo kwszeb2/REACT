@@ -1,5 +1,10 @@
 $bg-color:#333;
 $base-color:  #fff;
+@mixin position {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
 .top-nav {
   background-color: $bg-color;
@@ -56,4 +61,23 @@ $base-color:  #fff;
     color: #fff;
     margin-bottom: 10px;
   }
+}
+
+.price {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 4px;
+  @include position;
+  .alignText {
+    float: left;
+    padding-right: 10px;
+  }
+  .alignTax {
+    padding-right: 15px;
+  }
+}
+
+.checkout-btn {
+  @include position;
+  margin: 15px;
 }

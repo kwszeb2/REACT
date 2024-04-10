@@ -12,11 +12,13 @@ export default function ProductList({ products }) {
   const navigate = useNavigate();
 
   return (
-    <div><Link to={"/"} onClick={() => navigate(-1)}>
+    <div>
+      <Box m={3}>
+      <Link to={"/"} onClick={() => navigate(-1)}>
         Back to Categories
       </Link>
+      </Box>
     <Box m={3}>
-      
       {!products.length && (
         <Box sx={{ pt: 2, display: "flex", justifyContent: "center" }}>
           <Typography variant="h3" gutterBottom>

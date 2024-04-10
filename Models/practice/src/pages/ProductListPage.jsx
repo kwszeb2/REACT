@@ -3,6 +3,7 @@ import ProductList from "../components/ProductList.jsx";
 import { supabaseConfig } from "../server/config/db.config";
 import { createClient } from "@supabase/supabase-js";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
 
 const supabase = createClient(supabaseConfig.url, supabaseConfig.key);
 
@@ -35,7 +36,9 @@ export default function ProductListPage() {
 
   return (
     <div>
-      <h1>Product List Page for {id}</h1>
+      <Box m={3}>
+        <h1>{id}</h1>
+      </Box>
       <ProductList products={productListData} />
     </div>
   );

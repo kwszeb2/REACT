@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { supabaseConfig } from "../server/config/db.config";
 import { createClient } from "@supabase/supabase-js";
-import { InputLabel, MenuItem, FormControl, Select, Grid, Box, Button } from "@mui/material";
+import {
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Grid,
+  Box,
+  Button,
+} from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { red, green } from "@mui/material/colors";
-import CartPage from "../pages/CartPage";
 
 const supabase = createClient(supabaseConfig.url, supabaseConfig.key);
 
@@ -14,38 +21,33 @@ export default function ProductDetailsPage({ updateCartCount }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-
   const [productDetailData, setProductDetailData] = useState([]);
-  const [quantity, setQuantity] = useState('');
-  const [cartCount, setCartCount] = useState(0);
+  const [quantity, setQuantity] = useState("");
 
-    const handleAddToCart = () => {
-    
-      setCartCount(cartCount + 1);
-      updateCartCount();
-      navigate('/cart');
+  const handleAddToCart = () => {
+    const products = {
+      id: productDetailData.product_id,
+      productName: productDetailData.productName,
+      price: productDetailData.price,
+      qty: quantity,
+    };
 
-   /* const existingProduct = cartProduct.find(item => item.name === productDetailData.productName);
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((p) => p.id === products.id);
+
     if (existingProduct) {
-      setCartProduct(cartProduct.map(item => {
-        if (item.name === productDetailData.productName) {
-          return { ...item, quantity: item.quantity + quantity };
-        } else {
-          return item;
-        }
-      }));
+      existingProduct.qty = products.qty;
     } else {
-      setCartProduct((prevCartProduct) => [...prevCartProduct, {
-        name: productDetailData.productName,
-        price: productDetailData.price,
-        quantity: quantity
-      }]);
+      cart.push(products);
     }
-    console.log("Items " + JSON.stringify(cartProduct));
-    navigate("/cart", {
-      state: { cart: cartProduct}
-    });*/
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
   };
+
+  useEffect(() => {
+    updateCartCount();
+  }, [quantity]);
 
   useEffect(() => {
     getData();
@@ -79,12 +81,13 @@ export default function ProductDetailsPage({ updateCartCount }) {
 
   return (
     <div>
-      <h1>Product Detailed Page {id} </h1>
-      <Link to={"/"} onClick={() => navigate(-1)}>
-        Back to Products
-      </Link>
-      <br />
       <Box m={3}>
+        <h1>{id} </h1>
+        <Link to={"/"} onClick={() => navigate(-1)}>
+          Back to Products
+        </Link>
+        <br />
+        <br />
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <Box>
@@ -118,7 +121,7 @@ export default function ProductDetailsPage({ updateCartCount }) {
               <h3>{"Price: $" + productDetailData.price}</h3>
               <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel id="demo-select-small-label">Quantity</InputLabel>
-                <Select 
+                <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
                   value={quantity}

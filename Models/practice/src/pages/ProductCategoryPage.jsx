@@ -3,6 +3,7 @@ import Category from "../components/Category.jsx";
 import { supabaseConfig } from "../server/config/db.config";
 import { createClient } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
 
 const supabase = createClient(supabaseConfig.url, supabaseConfig.key);
 
@@ -33,7 +34,9 @@ export default function ProductCategoryPage() {
   }
   return (
     <div>
-      <h1>Products Category Page</h1>
+      <Box m={3}>
+        <h1>Products Category Page</h1>
+      </Box>
       <Category categories={categoryData} onClick={handleCategoryClick} />
     </div>
   );
