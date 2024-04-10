@@ -5,7 +5,7 @@
     <li>Product Category</li>
     <li>Product List</li>
     <li>Product Detail</li>
-    <li>Shopping Cart (In Progress)</li>
+    <li>Shopping Cart</li>
   </ul>
 
 <h3>Using Postgres database with Supabase</h3>
@@ -28,3 +28,5 @@ For more information <a href="https://supabase.com/docs/reference/javascript/ins
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/HxJ5K03/List.png" alt="List" border="0"></a>
 
 <a href="https://ibb.co/fFjSbV8"><img src="https://i.ibb.co/DW0bNPG/detail.png" alt="detail" border="0"></a>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/6XVVDSn/cart.png" alt="cart" border="0"></a>
